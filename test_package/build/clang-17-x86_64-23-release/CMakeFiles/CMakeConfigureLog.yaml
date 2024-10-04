@@ -101,8 +101,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-q8qpgy"
-      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-q8qpgy"
+      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-dmfyq8"
+      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-dmfyq8"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: "-m64"
@@ -113,22 +113,22 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-q8qpgy'
+        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-dmfyq8'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_80ec9/fast
-        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_80ec9.dir\\build.make CMakeFiles/cmTC_80ec9.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-q8qpgy'
-        Building C object CMakeFiles/cmTC_80ec9.dir/CMakeCCompilerABI.c.obj
-        C:\\PROGRA~1\\LLVM\\bin\\clang.exe   -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_80ec9.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_80ec9.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_80ec9.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
-        Linking C executable cmTC_80ec9.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_80ec9.dir\\link.txt --verbose=1
-        C:\\PROGRA~1\\LLVM\\bin\\clang.exe -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64 -v -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_80ec9.dir\\objects1.rsp -o cmTC_80ec9.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_80ec9.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-q8qpgy\\cmTC_80ec9.pdb -Xlinker /version:0.0 
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_24f97/fast
+        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_24f97.dir\\build.make CMakeFiles/cmTC_24f97.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-dmfyq8'
+        Building C object CMakeFiles/cmTC_24f97.dir/CMakeCCompilerABI.c.obj
+        C:\\PROGRA~1\\LLVM\\bin\\clang.exe   -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_24f97.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_24f97.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_24f97.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+        Linking C executable cmTC_24f97.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_24f97.dir\\link.txt --verbose=1
+        C:\\PROGRA~1\\LLVM\\bin\\clang.exe -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64 -v -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_24f97.dir\\objects1.rsp -o cmTC_24f97.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_24f97.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-dmfyq8\\cmTC_24f97.pdb -Xlinker /version:0.0 
         clang version 18.1.6
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: C:\\PROGRA~1\\LLVM\\bin
-         "C:\\\\PROGRA~1\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_80ec9.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\um\\\\x64" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_80ec9.dir/CMakeCCompilerABI.c.obj /MANIFEST:EMBED /implib:cmTC_80ec9.lib "/pdb:C:\\\\Users\\\\heraa\\\\OneDrive\\\\Desktop\\\\engine3d-audio\\\\test_package\\\\build\\\\clang-17-x86_64-23-release\\\\CMakeFiles\\\\CMakeScratch\\\\TryCompile-q8qpgy\\\\cmTC_80ec9.pdb" /version:0.0
-        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-q8qpgy'
+         "C:\\\\PROGRA~1\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_24f97.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\um\\\\x64" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_24f97.dir/CMakeCCompilerABI.c.obj /MANIFEST:EMBED /implib:cmTC_24f97.lib "/pdb:C:\\\\Users\\\\heraa\\\\OneDrive\\\\Desktop\\\\engine3d-audio\\\\test_package\\\\build\\\\clang-17-x86_64-23-release\\\\CMakeFiles\\\\CMakeScratch\\\\TryCompile-dmfyq8\\\\cmTC_24f97.pdb" /version:0.0
+        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-dmfyq8'
         
       exitCode: 0
   -
@@ -189,8 +189,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-07apm6"
-      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-07apm6"
+      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-qo3okj"
+      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-qo3okj"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "-m64"
@@ -202,22 +202,22 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-07apm6'
+        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-qo3okj'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_a02d4/fast
-        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a02d4.dir\\build.make CMakeFiles/cmTC_a02d4.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-07apm6'
-        Building CXX object CMakeFiles/cmTC_a02d4.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_a02d4.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_a02d4.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_a02d4.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
-        Linking CXX executable cmTC_a02d4.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_a02d4.dir\\link.txt --verbose=1
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64 -v -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_a02d4.dir\\objects1.rsp -o cmTC_a02d4.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_a02d4.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-07apm6\\cmTC_a02d4.pdb -Xlinker /version:0.0 
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_a6446/fast
+        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a6446.dir\\build.make CMakeFiles/cmTC_a6446.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-qo3okj'
+        Building CXX object CMakeFiles/cmTC_a6446.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_a6446.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_a6446.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_a6446.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+        Linking CXX executable cmTC_a6446.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_a6446.dir\\link.txt --verbose=1
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64 -v -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_a6446.dir\\objects1.rsp -o cmTC_a6446.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_a6446.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-qo3okj\\cmTC_a6446.pdb -Xlinker /version:0.0 
         clang version 18.1.6
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: C:\\PROGRA~1\\LLVM\\bin
-         "C:\\\\PROGRA~1\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_a02d4.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\um\\\\x64" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_a02d4.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_a02d4.lib "/pdb:C:\\\\Users\\\\heraa\\\\OneDrive\\\\Desktop\\\\engine3d-audio\\\\test_package\\\\build\\\\clang-17-x86_64-23-release\\\\CMakeFiles\\\\CMakeScratch\\\\TryCompile-07apm6\\\\cmTC_a02d4.pdb" /version:0.0
-        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-07apm6'
+         "C:\\\\PROGRA~1\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_a6446.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Enterprise\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\um\\\\x64" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_a6446.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_a6446.lib "/pdb:C:\\\\Users\\\\heraa\\\\OneDrive\\\\Desktop\\\\engine3d-audio\\\\test_package\\\\build\\\\clang-17-x86_64-23-release\\\\CMakeFiles\\\\CMakeScratch\\\\TryCompile-qo3okj\\\\cmTC_a6446.pdb" /version:0.0
+        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-qo3okj'
         
       exitCode: 0
   -
@@ -281,8 +281,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-u2l3za"
-      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-u2l3za"
+      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-ktv4g8"
+      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-ktv4g8"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "-m64"
@@ -293,17 +293,17 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-u2l3za'
+        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-ktv4g8'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_aede7/fast
-        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_aede7.dir\\build.make CMakeFiles/cmTC_aede7.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-u2l3za'
-        Building CXX object CMakeFiles/cmTC_aede7.dir/feature_tests.cxx.obj
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_aede7.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_aede7.dir\\feature_tests.cxx.obj.d -o CMakeFiles\\cmTC_aede7.dir\\feature_tests.cxx.obj -c C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-u2l3za\\feature_tests.cxx
-        Linking CXX executable cmTC_aede7.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_aede7.dir\\link.txt --verbose=1
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64  -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_aede7.dir\\objects1.rsp -o cmTC_aede7.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_aede7.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-u2l3za\\cmTC_aede7.pdb -Xlinker /version:0.0  @CMakeFiles\\cmTC_aede7.dir\\linkLibs.rsp
-        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-u2l3za'
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_5028b/fast
+        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_5028b.dir\\build.make CMakeFiles/cmTC_5028b.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-ktv4g8'
+        Building CXX object CMakeFiles/cmTC_5028b.dir/feature_tests.cxx.obj
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_5028b.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_5028b.dir\\feature_tests.cxx.obj.d -o CMakeFiles\\cmTC_5028b.dir\\feature_tests.cxx.obj -c C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-ktv4g8\\feature_tests.cxx
+        Linking CXX executable cmTC_5028b.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_5028b.dir\\link.txt --verbose=1
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64  -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_5028b.dir\\objects1.rsp -o cmTC_5028b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_5028b.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-ktv4g8\\cmTC_5028b.pdb -Xlinker /version:0.0  @CMakeFiles\\cmTC_5028b.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-ktv4g8'
         
       exitCode: 0
   -
@@ -318,8 +318,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-cvvlmr"
-      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-cvvlmr"
+      source: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-81b0zs"
+      binary: "C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-81b0zs"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "-m64"
@@ -330,17 +330,17 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-cvvlmr'
+        Change Dir: 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-81b0zs'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_b397e/fast
-        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b397e.dir\\build.make CMakeFiles/cmTC_b397e.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-cvvlmr'
-        Building CXX object CMakeFiles/cmTC_b397e.dir/feature_tests.cxx.obj
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_b397e.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_b397e.dir\\feature_tests.cxx.obj.d -o CMakeFiles\\cmTC_b397e.dir\\feature_tests.cxx.obj -c C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-cvvlmr\\feature_tests.cxx
-        Linking CXX executable cmTC_b397e.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_b397e.dir\\link.txt --verbose=1
-        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64  -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_b397e.dir\\objects1.rsp -o cmTC_b397e.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_b397e.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-cvvlmr\\cmTC_b397e.pdb -Xlinker /version:0.0  @CMakeFiles\\cmTC_b397e.dir\\linkLibs.rsp
-        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-cvvlmr'
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe -f Makefile cmTC_412f0/fast
+        C:/ProgramData/mingw64/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_412f0.dir\\build.make CMakeFiles/cmTC_412f0.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-81b0zs'
+        Building CXX object CMakeFiles/cmTC_412f0.dir/feature_tests.cxx.obj
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE   -m64  -O0 -g -Xclang -gcodeview -std=c++23 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_412f0.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_412f0.dir\\feature_tests.cxx.obj.d -o CMakeFiles\\cmTC_412f0.dir\\feature_tests.cxx.obj -c C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-81b0zs\\feature_tests.cxx
+        Linking CXX executable cmTC_412f0.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_412f0.dir\\link.txt --verbose=1
+        C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -nostartfiles -nostdlib -m64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -m64  -Xlinker /subsystem:console -fuse-ld=lld-link @CMakeFiles\\cmTC_412f0.dir\\objects1.rsp -o cmTC_412f0.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_412f0.lib -Xlinker /pdb:C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\test_package\\build\\clang-17-x86_64-23-release\\CMakeFiles\\CMakeScratch\\TryCompile-81b0zs\\cmTC_412f0.pdb -Xlinker /version:0.0  @CMakeFiles\\cmTC_412f0.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/heraa/OneDrive/Desktop/engine3d-audio/test_package/build/clang-17-x86_64-23-release/CMakeFiles/CMakeScratch/TryCompile-81b0zs'
         
       exitCode: 0
 ...

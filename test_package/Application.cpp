@@ -37,15 +37,15 @@ int main(int argc, char** argv){
     device_config.playback.format   = decoder.outputFormat;
     device_config.playback.channels = decoder.outputChannels;
     device_config.sampleRate        = decoder.outputSampleRate;
-    device_config.dataCallback      = data_callback;
-    device_config.dataCallback = [](ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount){
-        ma_decoder* pDecoder = (ma_decoder*)pDevice->pUserData;
-        if (pDecoder == NULL) {
-            return;
-        }
+    // device_config.dataCallback      = data_callback;
+    // device_config.dataCallback = [](ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount){
+    //     ma_decoder* pDecoder = (ma_decoder*)pDevice->pUserData;
+    //     if (pDecoder == NULL) {
+    //         return;
+    //     }
 
-        ma_decoder_read_pcm_frames(pDecoder, pOutput, frameCount, NULL);
-    };
+    //     ma_decoder_read_pcm_frames(pDecoder, pOutput, frameCount, NULL);
+    // };
 
     if (ma_device_init(NULL, &device_config, &device_handler) != MA_SUCCESS) {
         printf("Failed to open playback device.\n");
