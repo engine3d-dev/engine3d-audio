@@ -1,4 +1,18 @@
 # engine3d-audio
 
 ## Overview
-This is engine3d's audio engine that can be used both integrated into Engine3D's engine or for your very own standalone application use.
+This is the wrapper around miniaudio for engine3d. Wrapper that can also be used for standalone applications.
+
+## Building engine3d-audio
+
+You only need to build this project once using `conan create` command.
+
+```
+conan create . -b missing
+```
+
+Then you can build using `conan build` afterwards.
+
+```bash
+conan build .
+```

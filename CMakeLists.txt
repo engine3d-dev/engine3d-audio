@@ -8,6 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works (in creating the
 
 # find_package(OpenAL REQUIRED)
 # find_package(gstreamer REQUIRED)
+add_subdirectory(demo)
 add_subdirectory(src)
 
 # Copy to source directory
