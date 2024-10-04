@@ -15,7 +15,7 @@ class AudioRecipe(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True}
-    exports_sources = "CMakeLists.txt", "src/CMakeLists.txt", "audio/*", "audio/internal/*", "src/*"
+    exports_sources = "CMakeLists.txt", "src/CMakeLists.txt", "demo/CMakeLists.txt", "audio/*", "audio/internal/*", "src/*", "demo/*"
 
     def requirements(self):
         # self.requires("gstreamer/1.24.7")

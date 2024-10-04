@@ -1,8 +1,5 @@
-#include <filesystem>
-#include <iostream>
 #define MINIAUDIO_IMPLEMENTATION
 #include <audio/internal/miniaudio.h>
-#include <audio/internal/miniaudio_engine.h>
 using namespace std;
 
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
@@ -36,7 +33,7 @@ int main(){
         return -1;
     }
     else{
-        printf("Yaaay! This MA_ENGINE worked!\n");
+        printf("Yaaay! This MA_ENGINE is working!\n");
     }
 
     ma_device_config config = ma_device_config_init(ma_device_type_playback);
@@ -48,11 +45,11 @@ int main(){
 
     ma_device device;
     if (ma_device_init(NULL, &config, &device) != MA_SUCCESS) {
-        printf("Failed to initialize device!\n");
+        printf("This means miniaudio failed to initialize current platform device!\n");
         return -1;  // Failed to initialize the device.
     }
     else{
-        printf("Yay!!! It worked!\n");
+        printf("Validated the miniaudio framework has been tested if it works!\n");
     }
 
     ma_device_start(&device);     // The device is sleeping by default so you'll need to start it manually.

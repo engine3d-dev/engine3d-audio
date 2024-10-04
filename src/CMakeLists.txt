@@ -6,7 +6,7 @@ set(
     all_headers
     ${AUDIO_INCLUDE_DIRS}/helper-functions.h
     ${AUDIO_INCLUDE_DIRS}/internal/miniaudio.h
-    ${AUDIO_INCLUDE_DIRS}/internal/miniaudio_engine.h
+    # ${AUDIO_INCLUDE_DIRS}/internal/miniaudio_engine.h
 )
 
 set(
