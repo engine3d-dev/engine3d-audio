@@ -1,0 +1,42 @@
+{
+    "version": 3,
+    "vendor": {
+        "conan": {}
+    },
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 15,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "conan-release",
+            "displayName": "'conan-release' config",
+            "description": "'conan-release' configure using 'Unix Makefiles' generator",
+            "generator": "Unix Makefiles",
+            "cacheVariables": {
+                "CMAKE_POLICY_DEFAULT_CMP0091": "NEW",
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "environment": {
+                "PATH": "C:\\Users\\heraa\\.conan2\\p\\cmakefbe68aefa534a\\p\\bin;$penv{PATH}"
+            },
+            "cmakeExecutable": "C:\\Users\\heraa\\.conan2\\p\\cmakefbe68aefa534a\\p\\bin\\cmake.exe",
+            "toolchainFile": "generators\\conan_toolchain.cmake",
+            "binaryDir": "C:\\Users\\heraa\\OneDrive\\Desktop\\engine3d-audio\\build\\Release"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release",
+            "jobs": 16
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release"
+        }
+    ]
+}

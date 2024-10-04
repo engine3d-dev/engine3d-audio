@@ -1,0 +1,2 @@
+"C:/Program Files/LLVM/bin/llvm-ar.exe" qc engine3d-audio.lib "CMakeFiles/engine3d-audio.dir/audio/helper-functions.cpp.obj" "CMakeFiles/engine3d-audio.dir/audio/internal/miniaudio.cpp.obj"
+"C:/Program Files/LLVM/bin/llvm-ranlib.exe" engine3d-audio.lib

@@ -1,0 +1,7 @@
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/CMakeFiles/copy-compile-commands.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/CMakeFiles/generate-compile-commands.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/CMakeFiles/edit_cache.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/CMakeFiles/rebuild_cache.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/src/CMakeFiles/engine3d-audio.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/src/CMakeFiles/edit_cache.dir
+C:/Users/heraa/OneDrive/Desktop/engine3d-audio/build/Release/src/CMakeFiles/rebuild_cache.dir
