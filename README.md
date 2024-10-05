@@ -20,3 +20,11 @@ Then you can build using `conan build` afterwards.
 ```bash
 conan build .
 ```
+
+## Running engine3d-audio demo
+
+To run and test the example audio file, run the demo application like the following below:
+
+```bash
+./build/Release/demo/demo Resources/BabyElephantWalk60.wav
+```
