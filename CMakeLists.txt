@@ -1,14 +1,22 @@
-cmake_minimum_required(VERSION 3.25)
-project(audio-cpp LANGUAGES C CXX)
+# cmake_minimum_required(VERSION 4.0)
 
-build_library(
-    DIRECTORIES src
+# set(CMAKE_COLOR_DIAGNOSTICS ON)
 
-    ENABLE_TESTS ON
+# set(CMAKE_VERBOSE_MAKEFILE ON)
 
-    UNIT_TEST_SOURCES
-    tests/main.test.cpp
-    tests/basic_audio.test.cpp
+# set(CMAKE_CXX_SCAN_FOR_MODULES ON)
+# set(CMAKE_EXPERIMENTAL_EXPORT_PACKAGE_DEPENDENCIES "1942b4fa-b2c5-4546-9385-83f254070067")
+
+# project(audio-cpp LANGUAGES CXX)
+
+# # build_library(
+# #     DIRECTORIES audio-cpp
+
+# #     ENABLE_TESTS ON
+
+# #     UNIT_TEST_SOURCES
+# #     tests/main.test.cpp
+# #     tests/basic_audio.test.cpp
     
     PACKAGES
     miniaudio
@@ -21,6 +29,88 @@ build_library(
     atlas::atlas
 )
 
-generate_compile_commands()
+# find_package(miniaudio REQUIRED)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+# add_library(audio-cpp STATIC)
+
+# target_link_libraries(${PROJECT_NAME} PUBLIC miniaudio::miniaudio)
+
+# target_compile_features(audio-cpp PUBLIC cxx_std_23)
+
+# # generate_compile_commands()
+
+# target_sources(${PROJECT_NAME} PUBLIC
+#     FILE_SET CXX_MODULES
+#     TYPE CXX_MODULES
+#     FILES
+#     audio-cpp/audio.cppm
+#     audio-cpp/sound.cppm
+# )
+
+# # Make sure the unit_test target is built with audio-cpp
+# if(TARGET unit_test)
+#     target_link_libraries(unit_test PRIVATE audio-cpp)
+# endif()
+
+# install(
+#     TARGETS audio-cpp
+#     EXPORT audio-cpp_targets
+#     FILE_SET CXX_MODULES DESTINATION "."
+#     LIBRARY DESTINATION "lib"
+#     ARCHIVE DESTINATION "lib"
+#     CXX_MODULES_BMI DESTINATION "bmi"
+# )
+
+# install(
+#     EXPORT audio-cpp_targets
+#     FILE "audio-cpp-config.cmake"
+#     # NAMESPACE audio::
+#     DESTINATION "lib/cmake"
+#     CXX_MODULES_DIRECTORY "cxx-modules"
+#     EXPORT_PACKAGE_DEPENDENCIES
+# )
+cmake_minimum_required(VERSION 4.0)
+
+# Generate compile commands for anyone using our libraries.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_COLOR_DIAGNOSTICS ON)
+
+project(audio-cpp LANGUAGES CXX)
+
+add_library(${PROJECT_NAME} STATIC)
+
+find_package(miniaudio REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE miniaudio::miniaudio)
+
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
+
+target_sources(${PROJECT_NAME} PUBLIC
+    FILE_SET CXX_MODULES
+    TYPE CXX_MODULES
+    FILES
+    audio-cpp/audio.cppm
+    audio-cpp/sound.cppm
+)
+
+install(
+    TARGETS ${PROJECT_NAME}
+    EXPORT audio-cpp_targets
+    FILE_SET CXX_MODULES DESTINATION "."
+    LIBRARY DESTINATION "lib"
+    ARCHIVE DESTINATION "lib"
+    CXX_MODULES_BMI DESTINATION "bmi"
+)
+
+install(
+    EXPORT audio-cpp_targets
+    FILE "audio-cpp-config.cmake"
+    DESTINATION "lib/cmake"
+    CXX_MODULES_DIRECTORY "cxx-modules"
+)
+
+# Always run this custom target by making it depend on ALL
+add_custom_target(copy_compile_commands ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${CMAKE_BINARY_DIR}/compile_commands.json
+    ${CMAKE_SOURCE_DIR}/compile_commands.json
+    DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json)

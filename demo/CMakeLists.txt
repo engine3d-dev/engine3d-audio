@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.28)
 project(demo CXX)
 
 build_application(
@@ -10,6 +10,6 @@ build_application(
     miniaudio
     
     LINK_PACKAGES
-    audio-cpp::audio-cpp
+    audio-cpp
     miniaudio::miniaudio
 )
