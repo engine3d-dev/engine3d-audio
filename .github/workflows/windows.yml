@@ -34,6 +34,6 @@ jobs:
             shell: pwsh
             run: conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
           
-          - name: Running Test Cases
+          - name: Building audio-cpp
             shell: pwsh
             run: conan build . -b missing
