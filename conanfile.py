@@ -9,7 +9,7 @@ import hashlib
 
 class AudioRecipe(ConanFile):
     name = "audio-cpp"
-    version = "1.0"
+    version = "1.1"
     package_type = "library"
     license = "Apache-2.0"
     homepage = "https://github.com/engine3d-dev/engine3d-audio"
@@ -24,10 +24,13 @@ class AudioRecipe(ConanFile):
         self.tool_requires("make/4.4.1")
         self.tool_requires("cmake/3.27.1")
         self.tool_requires("engine3d-cmake-utils/4.0")
-        self.requires("boost-ext-ut/2.1.0")
+        self.requires("boost-ext-ut/2.3.1")
     
     def requirements(self):
         self.requires("miniaudio/1.0")
+        self.requires("atlas/0.2")
+        self.requires("flecs/4.0.4")
+        self.requires("glm/1.0.1")
     
     # This is how exporting the sources work
     def export_sources(self):

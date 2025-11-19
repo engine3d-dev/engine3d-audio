@@ -36,3 +36,7 @@ compile_commands.json
 CMakeUserPresets.json
 .vscode/
 .DS_Store
+
+# Random user stuff
+garbage/
+notes/

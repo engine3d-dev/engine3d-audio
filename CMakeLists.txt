@@ -12,9 +12,13 @@ build_library(
     
     PACKAGES
     miniaudio
+    flecs
+    atlas
 
     LINK_PACKAGES
     miniaudio::miniaudio
+    flecs::flecs_static
+    atlas::atlas
 )
 
 generate_compile_commands()
