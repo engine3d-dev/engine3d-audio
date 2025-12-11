@@ -1,8 +1,10 @@
 #pragma once
 
-#include <span>
+#include <vector>
 #include <map>
-#include <audio-cpp/device.hpp>
+#include <memory>
+
+#include <audio-cpp/types.hpp>
 
 namespace audio {
 
@@ -18,14 +20,11 @@ class context {
 public:
     context();
 
-    std::span<device_info> enumerate_devices();
-
-    void create_device(device* pDevice, const device_info& info);
-
-    std::unique_ptr<device> create_device(const std::string& deviceName,
-                                          const device_info& info);
+    std::vector<device_info> enumerate_devices();
 
     ma_context* get_wrapped_object() { return &m_context; }
+
+    ma_device_id get_id_for_device(const device_info& info);
 
 private:
 

@@ -31,6 +31,7 @@ class AudioRecipe(ConanFile):
         self.requires("atlas/0.2")
         self.requires("flecs/4.0.4")
         self.requires("glm/1.0.1")
+        self.requires("spdlog/1.15.1")
     
     # This is how exporting the sources work
     def export_sources(self):

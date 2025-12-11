@@ -1,31 +1,15 @@
 #pragma once
+
 #include <string>
 #include <core/scene/components.hpp>
 #include <miniaudio/miniaudio.h>
 #include <audio-cpp/engine.hpp>
+#include <audio-cpp/types.hpp>
 #include <cstdint>
 
 namespace audio {
 
 using source_index = uint32_t;
-
-enum sound_type {
-    from_file
-};
-
-struct sound_properties {
-    sound_type type = sound_type::from_file;
-    std::string filename;
-    // NOTE: supporting data callbacks will require more work to fully abstract
-    // void* data_callback(void) = nullptr;
-    bool persistent = false;
-    bool consider_position = false;
-    bool consider_rotation = false;
-    bool consider_velocity = false;
-    bool decode_on_init = false;
-    float doppler_factor = 0.f;
-    int polyphonic_voices = 1;
-};
 
 /**
  * @note Sound abstraction around the miniaudio API
@@ -33,8 +17,14 @@ struct sound_properties {
  */
 class sound {
 public:
+    sound() = default;
     sound(const sound_properties& p_properties);
-    ~sound();
+
+    ~sound() {
+        if (m_initialized) {
+            uninit();
+        }
+    }
 
     /**
      * @brief Initialize the sound with the given engine.
@@ -60,15 +50,18 @@ public:
 
     void set_transform(const atlas::transform& p_transform);
 
+    void set_velocity(const glm::vec3& p_linear_velocity,
+                      const glm::vec3& p_angular_velocity);
+
     /**
      * @brief Set this sound to play at the next tick.
      */
-    void play() { m_should_play = false; }
+    void play() { m_should_play = true; }
 
     /**
      * @brief Set this sound to stop playing at the next tick.
      */
-    void stop() { m_should_play = true; }
+    void stop() { m_should_stop = true; }
 
 private:
     void apply_config();
@@ -81,9 +74,11 @@ private:
     bool m_config_dirty = false;
     bool m_initialized = false;
 
-    const sound_properties m_properties;
+    sound_properties m_properties;
 
     atlas::transform m_transform;
+    glm::vec3 m_linear_velocity;
+    glm::vec3 m_angular_velocity;
 
     ma_sound m_sound;
 };

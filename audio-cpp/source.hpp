@@ -19,6 +19,7 @@ struct source_settings {
  */
 class source {
 public:
+    source() = default;
     source(const source_settings& p_settings);
 
     /**
@@ -67,7 +68,7 @@ public:
     void update(engine* p_engine);
 
 
-    void uninit(engine* p_engine);
+    void uninit();
 
     // NOTE: any object with a spatialized_source should also have a transform;
     // otherwise, it will behave as a regular source
