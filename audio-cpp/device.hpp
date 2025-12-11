@@ -3,36 +3,21 @@
 #include <string>
 #include <miniaudio/miniaudio.h>
 
-#include <stdint.h>
+#include <cstdint>
+#include <memory>
+
+#include <audio-cpp/context.hpp>
 
 namespace audio {
 
 using device_id = ma_device_id;
 
-enum device_type {
-    playback = ma_device_type_playback,
-    capture = ma_device_type_capture,
-    duplex = ma_device_type_duplex,
-    loopback = ma_device_type_loopback
-};
-
-struct device_info {
-    std::string name;
-    device_type type;
-    device_id id;
-};
-
-struct device_config {
-    device_info info;
-    uint32_t sampleRate;
-    uint32_t periodSizeInFrames;
-};
 
 class device {
 
 public:
-    device();
-    device(const device_config& config);
+    device() = default;
+    device(const device_config& p_config, context* p_context);
 
     ma_device* get_wrapped_object() { return &m_device; }
 
