@@ -15,7 +15,7 @@ class TestPackageConan(ConanFile):
 
     def requirements(self):
         self.requires(self.tested_reference_str)
-        self.requires("miniaudio/1.0")
+        self.requires("miniaudio/2.0")
 
     def layout(self):
         cmake_layout(self)
