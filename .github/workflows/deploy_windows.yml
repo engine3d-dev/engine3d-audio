@@ -42,3 +42,15 @@ jobs:
                 conan create . -b missing -s build_type=Release -pr windows_x86_64
                 conan create . -b missing -s build_type=Debug -pr windows_x86_64
                 conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
+          
+          - name: Login to JFrog
+            shell: pwsh
+            env:
+              PASSWORD: ${{ secrets.JFROG_ID }}
+              JFROG_USER: ${{ secrets.JFROG_USER_TOKEN_ID }}
+            run: conan remote login -p $PASSWORD engine3d-conan $JFROG_USER
+
+          - name: Deploy audio-cpp
+            shell: pwsh
+            run: |
+              conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
