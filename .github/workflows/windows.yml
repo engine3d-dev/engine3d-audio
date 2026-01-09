@@ -38,7 +38,4 @@ jobs:
           
           - name: Building audio-cpp
             shell: pwsh
-            run: |
-              conan create . -b missing -s build_type=Release windows_x86_64
-              conan create . -b missing -s build_type=Debug -pr windows_x86_64
-              conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
+            run: conan create . -b missing -s build_type=Debug -pr windows_x86_64
