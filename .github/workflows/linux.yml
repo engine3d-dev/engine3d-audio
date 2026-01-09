@@ -25,7 +25,12 @@ jobs:
               run: conan config install -sf profiles/x86_64/linux/ -tf profiles https://github.com/engine3d-dev/conan-config.git
 
             - name: Installing project dependencies
-              run: conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
+              run: |
+                conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
+                conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
 
             - name: Building audio-cpp
-              run: conan build . -b missing -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+              run: |
+                conan create . -b missing -s build_type=Release -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+                conan create . -b missing -s build_type=Debug -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+                conan create . -b missing -s build_type=MinSizeRel -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
