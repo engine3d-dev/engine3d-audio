@@ -24,7 +24,7 @@ boost::ut::suite<"basic_test"> add_test = []() {
         expect(z == 100);
     };
 
-    "audio::test"_test = [](){
+    "audio::test"_test = []() {
         audio::sound sound = audio::sound("test.wav");
     };
 };

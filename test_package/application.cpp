@@ -1,6 +1,6 @@
 import audio;
 
-
-int main() {
+int
+main() {
     return 0;
 }
