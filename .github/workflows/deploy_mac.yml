@@ -1,10 +1,13 @@
-name: Macos Build Tests
+name: Deploy to MacOS
 
-on: [pull_request]
+on:
+    push:
+        branches:
+            main
 
 jobs:
     macos-build:
-        name: "M1 Mac Build"
+        name: "MacOS-Deployment"
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
