@@ -29,7 +29,12 @@ jobs:
               run: conan config install -sf profiles/armv8/mac/ -tf profiles https://github.com/engine3d-dev/conan-config.git
 
             - name: Installing Atlas repositories
-              run: conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
+              run: |
+                conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
+                conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
 
             - name: Building audio-cpp
-              run: conan build . -b missing
+              run: |
+                conan create . -b missing -s build_type=Release -pr mac_armv8
+                conan create . -b missing -s build_type=Debug -pr mac_armv8
+                conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
