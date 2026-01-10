@@ -1,5 +1,4 @@
 #include <audio-cpp/sound.hpp>
-#include <core/engine_logger.hpp>
 #include <miniaudio/miniaudio.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -16,8 +15,6 @@ void sound::init(engine* p_engine) {
     if (m_initialized) {
         return;
     }
-
-    std::printf("sound is being initialized...\n");
 
     // get raw ma_engine instance
     ma_engine* engine_inst = p_engine->get_instance();
@@ -44,15 +41,10 @@ void sound::init(engine* p_engine) {
     }
 
     if (result != MA_SUCCESS) {
-        std::printf("could not initialize sound, got response %d\n", result);
         throw new audio_exception(result);
     }
 
-    ma_sound_set_volume(&m_sound, m_properties.gain);
-
     m_initialized = true;
-
-    std::printf("sound has been initialized\n");
 }
 
 void sound::apply_config() {
@@ -97,38 +89,22 @@ void sound::update(engine* p_engine) {
         ma_sound_set_direction(&m_sound, forward.x, forward.y, forward.z);
     }
 
-    // TODO: handle angular velocity or get rid of functionality
     if (m_properties.consider_velocity) {
-        ma_sound_set_velocity(&m_sound,
-                              m_linear_velocity.x,
-                              m_linear_velocity.y,
-                              m_linear_velocity.z);
+        // TODO: give velocity to miniaudio
     }
 
     // play sound if we should play
     if (m_should_play) {
         if (!m_initialized) {
-            return;
+            init(p_engine);
         }
-
-        std::printf("sound is playing...\n");
 
         // TODO: add playhead positioning
         // replace with ma_sound_seek_to_second, which cannot be included for
         // whatever reason...
-        ma_result r;
-        r = ma_sound_seek_to_pcm_frame(&m_sound, 0);
-        if (r != MA_SUCCESS) {
-            std::printf("could not seek, got result%d\n", r);
-            throw new audio_exception(r);
-        }
-
+        ma_sound_seek_to_pcm_frame(&m_sound, 0);
         if (!m_is_playing) {
-            r = ma_sound_start(&m_sound);
-            if (r != MA_SUCCESS) {
-                std::printf("could not play sound, got result%d\n", r);
-                throw new audio_exception(r);
-            }
+            ma_sound_start(&m_sound);
             m_is_playing = true;
         }
 
@@ -141,16 +117,6 @@ void sound::uninit() {
         ma_sound_uninit(&m_sound);
         m_initialized = false;
     }
-}
-
-void sound::set_transform(const atlas::transform& p_transform) {
-    m_transform = p_transform;
-}
-
-void sound::set_velocity(const glm::vec3& p_linear_velocity,
-                         const glm::vec3& p_angular_velocity) {
-    m_linear_velocity = p_linear_velocity;
-    m_angular_velocity = p_angular_velocity;
 }
 
 //    sound::sound(const std::string& p_filename) {

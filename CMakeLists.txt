@@ -89,9 +89,13 @@ static_library(
 
     PACKAGES
     miniaudio
+    flecs
+    atlas
 
     LINK_PACKAGES
     miniaudio::miniaudio
+    flecs::flecs_static
+    atlas::atlas
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
@@ -121,9 +125,9 @@ install(
 )
 
 # Always run this custom target by making it depend on ALL
-modules_generate_compile_commands()
-# add_custom_target(copy_compile_commands ALL
-#     COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#     ${CMAKE_BINARY_DIR}/compile_commands.json
-#     ${CMAKE_SOURCE_DIR}/compile_commands.json
-#     DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json)
+add_custom_target(copy_compile_commands ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${CMAKE_BINARY_DIR}/compile_commands.json
+    ${CMAKE_SOURCE_DIR}/compile_commands.json
+    DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json
+)

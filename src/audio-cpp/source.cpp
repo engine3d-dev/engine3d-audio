@@ -39,14 +39,14 @@ void source::uninit() {
     }
 }
 
-void source::set_transform(atlas::transform p_transform) {
+void set_transform(atlas::transform p_transform) {
     for (sound& curr_sound : m_sounds) {
         curr_sound.set_transform(p_transform);
     }
 }
 
-void source::set_velocity(glm::vec3 p_linear_velocity,
-                          glm::vec3 p_angular_velocity) {
+void set_velocity(glm::vec3 p_linear_velocity,
+                  glm::vec3 p_angular_velocity) {
     for (sound& curr_sound : m_sounds) {
         curr_sound.set_velocity(p_linear_velocity, p_angular_velocity);
     }

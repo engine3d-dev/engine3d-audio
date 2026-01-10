@@ -16,7 +16,7 @@ struct engine_config {
     device_config device;
 
     // spatialization params
-    unsigned int spatial_interpolation_ms = 50;
+    unsigned int spatial_interpolation_ms;
 };
 
 // forward declaration to avoid dependency cycle
@@ -25,11 +25,9 @@ class source;
 class engine {
 
 public:
-    engine() = default;
     engine(const engine_config& p_config,
            flecs::world& p_registry,
            context* p_context);
-    ~engine();
 
     void init();
 
@@ -37,7 +35,7 @@ public:
 
     void uninit();
 
-    void set_active_listener(const listener* p_listener) { m_active_listener = p_listener; }
+    void set_active_listener(listener* p_listener);
 
     ma_engine* get_instance() { return &m_engine; }
 
@@ -61,15 +59,10 @@ private:
     ma_engine m_engine;
     ma_engine_config m_config;
 
-    device m_device;
-    //context* m_context = nullptr;
-    ma_context m_context;
+    device* m_device = nullptr;
+    context* m_context = nullptr;
 
-    const listener* m_active_listener = nullptr;
-
-    bool m_initialized = false;
-
-    ma_engine_config m_engine_config;
+    listener* m_active_listener = nullptr;
 };
 
 };
