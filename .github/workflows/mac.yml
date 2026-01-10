@@ -33,8 +33,19 @@ jobs:
                 conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
                 conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
 
-            - name: Building audio-cpp
-              run: |
-                conan create . -b missing -s build_type=Release -pr mac_armv8
-                conan create . -b missing -s build_type=Debug -pr mac_armv8
-                conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
+            # - name: Building audio-cpp
+            #   run: |
+            #     conan create . -b missing -s build_type=Release -pr mac_armv8
+            #     conan create . -b missing -s build_type=Debug -pr mac_armv8
+            #     conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
+            - name: Creating Release build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=Release -pr mac_armv8
+            
+            - name: Creating Debug build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=Debug -pr mac_armv8
+            
+            - name: Creating MinSizeRel build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
