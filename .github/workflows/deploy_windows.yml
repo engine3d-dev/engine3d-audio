@@ -8,7 +8,7 @@ name: Deploy to Windows
 on: [pull_request, workflow_dispatch]
 
 jobs:
-  windows-build:
+  windows_x86_64:
       if: github.event.pull_request.merged == false
       runs-on: windows-latest
       steps:
