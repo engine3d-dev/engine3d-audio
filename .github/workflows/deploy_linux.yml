@@ -1,4 +1,4 @@
-name: Linux Platform Build
+name: Deploy to Linux
 
 # on:
 #   pull_request:
