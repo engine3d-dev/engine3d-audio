@@ -1,13 +1,15 @@
 name: Deploy to Windows
 
-on:
-    push:
-        branches:
-            main
+# on:
+#   pull_request:
+#     types: [closed]
+#     branches:
+#       - main  # Only trigger for PRs merged into main
+on: [pull_request, workflow_dispatch]
 
 jobs:
   windows-build:
-      name: "Windows-Deployment"
+      if: github.event.pull_request.merged == false
       runs-on: windows-latest
       steps:
           - uses: actions/checkout@v4
@@ -33,27 +35,35 @@ jobs:
             shell: pwsh
             run: conan config install -sf profiles/x86_64/Windows/ -tf profiles https://github.com/engine3d-dev/conan-config.git
           
-          - name: Setting up packages
+          - name: Setting up remote repositories
             shell: pwsh
             run: |
               conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
               conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
           
-          - name: Building audio-cpp
+          # - name: Building audio-cpp
+          #   shell: pwsh
+          #   run: |
+          #       conan create . -b missing -s build_type=Release -pr windows_x86_64
+          #       conan create . -b missing -s build_type=Debug -pr windows_x86_64
+          #       conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
+          - name: Creating Release build for audio-cpp
             shell: pwsh
-            run: |
-                conan create . -b missing -s build_type=Release -pr windows_x86_64
-                conan create . -b missing -s build_type=Debug -pr windows_x86_64
-                conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
+            run: conan create . -b missing -s build_type=Release -pr windows_x86_64
+          
+          - name: Creating Debug build for audio-cpp
+            shell: pwsh
+            run: conan create . -b missing -s build_type=Debug -pr windows_x86_64
+          
+          - name: Creating MinSizeRel build for audio-cpp
+            shell: pwsh
+            run: conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
           
           - name: Login to JFrog
             shell: pwsh
-            env:
-              PASSWORD: ${{ secrets.JFROG_ID }}
-              JFROG_USER: ${{ secrets.JFROG_USER_TOKEN_ID }}
-            run: conan remote login -p $PASSWORD engine3d-conan $JFROG_USER
+            run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
 
-          - name: Deploy audio-cpp
-            shell: pwsh
-            run: |
-              conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
+          # - name: Deploy audio-cpp
+          #   shell: pwsh
+          #   run: |
+          #     conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
