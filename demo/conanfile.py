@@ -18,7 +18,7 @@ class Demo(ConanFile):
     # Putting all of your packages here
     def requirements(self):
         self.requires("audio-cpp/2.0")
-        self.requires("miniaudio/1.0")
+        self.requires("miniaudio/2.0")
 
     def build(self):
         cmake = CMake(self)
