@@ -1,15 +1,14 @@
 name: Deploy to Windows
 
-# on:
-#   pull_request:
-#     types: [closed]
-#     branches:
-#       - main  # Only trigger for PRs merged into main
-on: [pull_request, workflow_dispatch]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main  # Only trigger for PRs merged into main
 
 jobs:
   windows_x86_64:
-      if: github.event.pull_request.merged == false
+      if: github.event.pull_request.merged == true
       runs-on: windows-latest
       steps:
           - uses: actions/checkout@v4
@@ -41,12 +40,6 @@ jobs:
               conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
               conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
           
-          # - name: Building audio-cpp
-          #   shell: pwsh
-          #   run: |
-          #       conan create . -b missing -s build_type=Release -pr windows_x86_64
-          #       conan create . -b missing -s build_type=Debug -pr windows_x86_64
-          #       conan create . -b missing -s build_type=MinSizeRel -pr windows_x86_64
           - name: Creating Release build for audio-cpp
             shell: pwsh
             run: conan create . -b missing -s build_type=Release -pr windows_x86_64
@@ -63,7 +56,7 @@ jobs:
             shell: pwsh
             run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
 
-          # - name: Deploy audio-cpp
+          # - name: Deploy audio-cpp to JFrog remote repositories
           #   shell: pwsh
           #   run: |
           #     conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
