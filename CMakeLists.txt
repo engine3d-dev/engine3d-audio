@@ -6,10 +6,22 @@ set(CMAKE_COLOR_DIAGNOSTICS ON)
 
 project(audio-cpp LANGUAGES CXX)
 
-add_library(${PROJECT_NAME} STATIC)
+static_library(
+    ENABLE_TESTS ON
+    
+    UNIT_TEST_SOURCES
+    tests/main.test.cpp
+    tests/basic_audio.test.cpp
+    
+    LOCAL_PACKAGES
+    audio-cpp
 
-find_package(miniaudio REQUIRED)
-target_link_libraries(${PROJECT_NAME} PRIVATE miniaudio::miniaudio)
+    PACKAGES
+    miniaudio
+
+    LINK_PACKAGES
+    miniaudio::miniaudio
+)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
