@@ -1,16 +1,14 @@
 name: Deploy to MacOS
 
-# on:
-#   pull_request:
-#     types: [closed]
-#     branches:
-#       - main  # Only trigger for PRs merged into main
-
-on: [pull_request, workflow_dispatch]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main  # Only trigger for PRs merged into main
 
 jobs:
     macos_armv8:
-        if: github.event.pull_request.merged == false
+        if: github.event.pull_request.merged == true
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
@@ -41,11 +39,6 @@ jobs:
                 conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
                 conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
 
-            # - name: Building audio-cpp
-            #   run: |
-            #     conan create . -b missing -s build_type=Release -pr mac_armv8
-            #     conan create . -b missing -s build_type=Debug -pr mac_armv8
-            #     conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
             - name: Creating Release build for audio-cpp
               shell: pwsh
               run: conan create . -b missing -s build_type=Release -pr mac_armv8
@@ -65,7 +58,7 @@ jobs:
                 JFROG_USER: ${{ secrets.JFROG_USER_TOKEN_ID }}
               run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
 
-            # - name: Deploy audio-cpp
+            # - name: Deploy audio-cpp to JFrog remote repositories
             #   shell: pwsh
             #   run: |
             #       conan upload audio-cpp/2.0 --r=engine3d-conan --confirm

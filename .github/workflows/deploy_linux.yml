@@ -1,0 +1,58 @@
+name: Linux Platform Build
+
+# on:
+#   pull_request:
+#     types: [closed]
+#     branches:
+#       - main  # Only trigger for PRs merged into main
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+    linux_x86_64:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install LLVM's C++ Standard Library
+              run: sudo apt-get install libc++-20-dev libc++abi-20-dev
+
+            - name: Installing pipx
+              run: sudo apt install pipx
+
+            - name: Installing Prerequisites for Linux
+              run: |
+                  sudo apt-get update
+                  sudo apt install software-properties-common -y
+                  sudo add-apt-repository ppa:deadsnakes/ppa
+
+            - name: Installing Conan
+              run: pipx install "conan>=2.18.1"
+
+            - name: Setting up Conan Profiles
+              run: conan config install -sf profiles/x86_64/linux/ -tf profiles https://github.com/engine3d-dev/conan-config.git
+
+            - name: Adding Conan remote dependencies
+              run: |
+                conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
+                conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
+
+            - name: Creating Release build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=Release -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+            
+            - name: Creating Debug build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=Debug -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+            
+            - name: Creating MinSizeRel build for audio-cpp
+              shell: pwsh
+              run: conan create . -b missing -s build_type=MinSizeRel -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+            
+            - name: Login to JFrog
+              run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
+            
+            # - name: Uploading audio-cpp to JFrog remote repositories
+            #   shell: pwsh
+            #   run: conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
+
