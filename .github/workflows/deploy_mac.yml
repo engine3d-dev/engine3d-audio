@@ -58,7 +58,7 @@ jobs:
                 JFROG_USER: ${{ secrets.JFROG_USER_TOKEN_ID }}
               run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
 
-            # - name: Deploy audio-cpp to JFrog remote repositories
-            #   shell: pwsh
-            #   run: |
-            #       conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
+            - name: Deploy audio-cpp to JFrog remote repositories
+              shell: pwsh
+              run: |
+                  conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
