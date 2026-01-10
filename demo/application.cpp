@@ -1,5 +1,5 @@
 #include <iostream>
-#include <audio-cpp/sound.hpp>
+import audio;
 using namespace std;
 
 int

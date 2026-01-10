@@ -1,10 +1,14 @@
-name: Macos Build Tests
+name: Deploy to MacOS
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main  # Only trigger for PRs merged into main
 
 jobs:
-    macos-build:
-        name: "M1 Mac Build"
+    macos_armv8:
+        if: github.event.pull_request.merged == true
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
@@ -16,8 +20,10 @@ jobs:
               run: |
                 brew install python pipx llvm@17
 
-            - name: Installing conan
-              run: pipx install "conan>=2.10.2"
+            - name: Pipx installing conan
+              run: |
+                pipx install "conan>=2.18.2"
+                pipx upgrade conan
 
             - name: Installing clang-tidy
               run: sudo ln -s $(brew --prefix llvm)/bin/clang-tidy /usr/local/bin/
@@ -33,11 +39,6 @@ jobs:
                 conan remote add engine3d-conan https://libhal.jfrog.io/artifactory/api/conan/engine3d-conan
                 conan remote add libhal-trunk https://libhal.jfrog.io/artifactory/api/conan/trunk-conan
 
-            # - name: Building audio-cpp
-            #   run: |
-            #     conan create . -b missing -s build_type=Release -pr mac_armv8
-            #     conan create . -b missing -s build_type=Debug -pr mac_armv8
-            #     conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
             - name: Creating Release build for audio-cpp
               shell: pwsh
               run: conan create . -b missing -s build_type=Release -pr mac_armv8
@@ -49,3 +50,15 @@ jobs:
             - name: Creating MinSizeRel build for audio-cpp
               shell: pwsh
               run: conan create . -b missing -s build_type=MinSizeRel -pr mac_armv8
+
+            - name: Login to JFrog
+              shell: pwsh
+              env:
+                PASSWORD: ${{ secrets.JFROG_ID }}
+                JFROG_USER: ${{ secrets.JFROG_USER_TOKEN_ID }}
+              run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
+
+            - name: Deploy audio-cpp to JFrog remote repositories
+              shell: pwsh
+              run: |
+                  conan upload audio-cpp/2.0 --r=engine3d-conan --confirm

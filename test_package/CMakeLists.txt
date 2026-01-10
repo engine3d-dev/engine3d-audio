@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(demo CXX)
+project(test_package CXX)
 
 build_application(
     SOURCES

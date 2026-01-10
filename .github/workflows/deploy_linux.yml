@@ -1,10 +1,14 @@
-name: Linux Platform Build
+name: Deploy to Linux
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main  # Only trigger for PRs merged into main
 
 jobs:
-    linux-build:
-        name: "Linux-Build"
+    linux_x86_64:
+        if: github.event.pull_request.merged == true
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -43,4 +47,11 @@ jobs:
             - name: Creating MinSizeRel build for audio-cpp
               shell: pwsh
               run: conan create . -b missing -s build_type=MinSizeRel -pr linux_x86_64 -c tools.system.package_manager:sudo=True -c tools.system.package_manager:mode=install
+            
+            - name: Login to JFrog
+              run: conan remote login -p ${{ secrets.JFROG_USER_TOKEN_ID }} engine3d-conan ${{ secrets.JFROG_USERNAME }}
+            
+            - name: Uploading audio-cpp to JFrog remote repositories
+              shell: pwsh
+              run: conan upload audio-cpp/2.0 --r=engine3d-conan --confirm
 
