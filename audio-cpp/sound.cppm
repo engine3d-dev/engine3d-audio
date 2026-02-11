@@ -16,7 +16,7 @@ export namespace audio {
             return;
         }
 
-        ma_decoder_read_pcm_frames(decoder, p_output, p_frame_count, NULL);
+        ma_decoder_read_pcm_frames(decoder, p_output, p_frame_count, nullptr);
 
         (void)p_input;
     }
