@@ -33,13 +33,6 @@ target_sources(${PROJECT_NAME} PUBLIC
     FILES
     audio-cpp/audio.cppm
     audio-cpp/sound.cppm
-    audio-cpp/source.cppm
-    audio-cpp/resource_manager.cppm
-    audio-cpp/listener.cppm
-    audio-cpp/types.cppm
-    audio-cpp/engine.cppm
-    audio-cpp/context.cppm
-    audio-cpp/device.cppm
 )
 
 install(
