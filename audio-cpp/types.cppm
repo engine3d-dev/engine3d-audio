@@ -1,11 +1,13 @@
-#pragma once
+module;
 
 #include <miniaudio/miniaudio.h>
 #include <exception>
 #include <string>
 #include <sstream>
 
-namespace audio {
+export module audio:types;
+
+export namespace audio {
 
 enum device_type {
     playback = ma_device_type_playback,

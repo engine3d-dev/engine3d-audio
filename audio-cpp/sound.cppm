@@ -1,78 +1,116 @@
 module;
 
 #include <string>
+// #include <core/scene/components.hpp>
 #include <miniaudio/miniaudio.h>
+// #include <audio-cpp/engine.hpp>
+// #include <audio-cpp/types.hpp>
+#include <cstdint>
 
 export module audio:sound;
 
-export namespace audio::inline v1 {
-    void data_callback(ma_device* p_device,
-                    /*NOLINT*/void* p_output,
-                    /*NOLINT*/ const void* p_input,
-                    ma_uint32 p_frame_count) {
-        ma_decoder* decoder = (ma_decoder*)p_device->pUserData;
-        if (decoder == nullptr) {
-            return;
+import :engine;
+import :types;
+
+export namespace audio {
+
+using source_index = uint32_t;
+
+/**
+ * @note Sound abstraction around the miniaudio API
+ *
+ */
+class sound {
+public:
+    sound() = default;
+    sound(const sound_properties& p_properties);
+
+    ~sound() {
+        if (m_initialized) {
+            uninit();
         }
-
-        ma_decoder_read_pcm_frames(decoder, p_output, p_frame_count, NULL);
-
-        (void)p_input;
     }
 
     /**
-     * @note Sound abstraction around the miniaudio API
-     *
+     * @brief Initialize the sound with the given engine.
+     * @param p_engine: A pointer to the engine.
      */
-    class sound {
-    public:
-        sound(const std::string& p_filename) {
-            ma_decoder_init_file(p_filename.c_str(), nullptr, &m_decoder);
-
-            m_audio_device_config = ma_device_config_init(ma_device_type_playback);
-
-            m_audio_device_config.playback.format = m_decoder.outputFormat;
-            m_audio_device_config.playback.channels = m_decoder.outputChannels;
-            m_audio_device_config.sampleRate = m_decoder.outputSampleRate;
-            m_audio_device_config.dataCallback = data_callback;
-            m_audio_device_config.pUserData = &m_decoder;
-
-            auto res = ma_device_init(
-            nullptr, &m_audio_device_config, &m_audio_device_handler);
-            if (res != MA_SUCCESS) {
-                cleanup();
-                return;
-            }
+    void init(engine* p_engine) {
+        if (!m_initialized) {
+            // Initialize the sound with the given engine
+            m_initialized = true;
         }
+    }
 
-        ~sound() {
-            cleanup();
+    /**
+     * @brief Should be called once per tick. The sound should carry out any
+     * pending instructions, including playing itself if necessary, stopping,
+     * uninitializing itself if it is not persistent, etc.
+     * @note If this is called before set_transform or set_velocity, the
+     * changes will not be applied until after the sound has already been
+     * updated.
+     * @param p_engine: A pointer to the engine.
+     */
+    void update(engine* p_engine) {
+
+    }
+
+    /**
+     * @brief Uninitialize the sound.
+     */
+    void uninit();
+
+    // void set_transform(const atlas::transform& p_transform) {
+    void set_transform(float p_x, float p_y, float p_z, float p_forward_x, float p_forward_y, float p_forward_z) {
+        m_config_dirty = true;
+    }
+
+    // void set_velocity(const glm::vec3& p_linear_velocity,
+    //                   const glm::vec3& p_angular_velocity) {
+    // }
+
+    void set_velocity(float p_linear_velocity_x, float p_linear_velocity_y, float p_linear_velocity_z,
+                      float p_angular_velocity_x, float p_angular_velocity_y, float p_angular_velocity_z) {
+        m_config_dirty = true;
+    }
+
+    /**
+     * @brief Set this sound to play at the next tick.
+     */
+    void play() { m_should_play = true; }
+
+    /**
+     * @brief Set this sound to stop playing at the next tick.
+     */
+    void stop() { m_should_stop = true; }
+
+private:
+    void apply_config() {
+        if (m_config_dirty) {
+            // Apply the configuration changes
+            m_config_dirty = false;
         }
+    }
 
-        void on_play() {
-            auto res = ma_device_start(&m_audio_device_handler);
-            if (res != MA_SUCCESS) {
-                cleanup();
-            }
+    void cleanup() {
+        if (m_initialized) {
+            uninit();
         }
+    }
 
-        void on_stop() {
-            auto res = ma_device_stop(&m_audio_device_handler);
+    bool m_is_playing = false;
+    bool m_should_play = false;
+    bool m_should_stop = false;
+    bool m_config_dirty = false;
+    bool m_initialized = false;
 
-            if (res != MA_SUCCESS) {
-                cleanup();
-            }
-        }
+    sound_properties m_properties;
 
-    private:
-        void cleanup() {
-            ma_device_uninit(&m_audio_device_handler);
-            ma_decoder_uninit(&m_decoder);
-        }
+    // atlas::transform m_transform;
+    // glm::vec3 m_linear_velocity;
+    // glm::vec3 m_angular_velocity;
 
-    private:
-        ma_decoder m_decoder;
-        ma_device m_audio_device_handler;
-        ma_device_config m_audio_device_config;
-    };
+    ma_sound m_sound;
 };
+
+}; // namespace audio

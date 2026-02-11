@@ -1,11 +1,17 @@
-#pragma once
+module;
+
 #include <vector>
 #include <miniaudio/miniaudio.h>
 #include <cstdint>
-#include <audio-cpp/sound.hpp>
-#include <audio-cpp/engine.hpp>
+// #include <audio-cpp/sound.hpp>
+// #include <audio-cpp/engine.hpp>
 
-namespace audio {
+export module audio:source;
+
+import :sound;
+import :engine;
+
+export namespace audio {
 
 using source_index = uint32_t;
 
@@ -20,7 +26,8 @@ struct source_settings {
 class source {
 public:
     source() = default;
-    source(const source_settings& p_settings);
+    source(const source_settings& p_settings) {
+    }
 
     /**
      * @brief Add a new sound to the spatialized source.
@@ -28,7 +35,9 @@ public:
      * @returns The index of the sound, which can be later referenced to
      * interact with the newly added sound.
      */
-    source_index add(sound p_sound);
+    source_index add(sound p_sound) {
+
+    }
 
     /**
      * @brief Play a specific sound that has been registered with the
@@ -36,7 +45,9 @@ public:
      * @param p_index: The index to the sound to be played, which has been
      * previously returned from the "add" function call.
      */
-    void play(source_index p_index);
+    void play(source_index p_index) {
+
+    }
 
     /**
      * @brief Stop a specific sound that has been registered with the
@@ -44,7 +55,9 @@ public:
      * @param p_index: The index to the sound to be played, which has been
      * previously returned from the "add" function call.
      */
-    void stop(source_index p_index);
+    void stop(source_index p_index) {
+
+    }
 
     /**
      * @brief Get a pointer to the sound at a specific index.
@@ -57,7 +70,9 @@ public:
     /**
      * @brief Stop all currently playing sounds.
      */
-    void stop_all();
+    void stop_all() {
+
+    }
 
     /**
      * @brief Initialize the spatialized source.
@@ -72,10 +87,12 @@ public:
 
     // NOTE: any object with a spatialized_source should also have a transform;
     // otherwise, it will behave as a regular source
-    void set_transform(atlas::transform p_transform);
+    void set_transform(float p_x, float p_y, float p_z, float p_forward_x, float p_forward_y, float p_forward_z) {
+    }
 
-    void set_velocity(glm::vec3 p_linear_velocity,
-                      glm::vec3 p_angular_velocity);
+    void set_velocity(float p_linear_velocity_x, float p_linear_velocity_y, float p_linear_velocity_z,
+                      float p_angular_velocity_x, float p_angular_velocity_y, float p_angular_velocity_z) {
+    }
 
 private:
     void cleanup();

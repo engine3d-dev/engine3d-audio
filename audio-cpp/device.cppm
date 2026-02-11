@@ -1,4 +1,4 @@
-#pragma once
+module;
 
 #include <string>
 #include <miniaudio/miniaudio.h>
@@ -6,9 +6,14 @@
 #include <cstdint>
 #include <memory>
 
-#include <audio-cpp/context.hpp>
+// #include <audio-cpp/context.hpp>
 
-namespace audio {
+export module audio:device;
+
+import :context;
+import :types;
+
+export namespace audio {
 
 using device_id = ma_device_id;
 

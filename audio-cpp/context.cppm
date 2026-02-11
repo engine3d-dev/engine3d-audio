@@ -1,12 +1,18 @@
-#pragma once
+// #pragma once
+
+module;
 
 #include <vector>
 #include <map>
 #include <memory>
+#include <miniaudio/miniaudio.h>
+// #include <audio-cpp/types.hpp>
 
-#include <audio-cpp/types.hpp>
+export module audio:context;
 
-namespace audio {
+import :types;
+
+export namespace audio {
 
 struct context_config {
 

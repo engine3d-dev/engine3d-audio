@@ -13,7 +13,7 @@ class Demo(ConanFile):
         self.tool_requires("ninja/1.13.2")
         self.tool_requires("cmake/4.2.1")
         self.tool_requires("cmake-modules-toolchain/1.0.3")
-        self.tool_requires("engine3d-cmake-utils/4.0")
+        self.tool_requires("engine3d-cmake-utils/5.0")
 
     # Putting all of your packages here
     def requirements(self):

@@ -25,6 +25,5 @@ boost::ut::suite<"basic_test"> add_test = []() {
     };
 
     "audio::test"_test = []() {
-        audio::sound sound = audio::sound("test.wav");
     };
 };

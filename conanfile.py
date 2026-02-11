@@ -23,22 +23,10 @@ class AudioCppRecipe(ConanFile):
         self.tool_requires("cmake/[^4.0.0]")
         self.tool_requires("ninja/[^1.3.0]")
         self.test_requires("boost-ext-ut/2.3.1")
-        self.tool_requires("engine3d-cmake-utils/4.0")
-        self.requires("boost-ext-ut/2.3.1")
+        self.tool_requires("engine3d-cmake-utils/5.0")
     
     def requirements(self):
-        self.requires("miniaudio/1.0")
-        self.requires("atlas/0.2")
-        self.requires("flecs/4.0.4")
-        self.requires("glm/1.0.1")
-        self.requires("spdlog/1.15.1")
-    
-    # This is how exporting the sources work
-    def export_sources(self):
-        copy(self,"CMakeLists.txt", self.recipe_folder, self.export_sources_folder)
-        copy(self,"*.hpp", self.recipe_folder, self.export_sources_folder)
-        copy(self,"*.h", self.recipe_folder, self.export_sources_folder)
-        copy(self,"*.cpp", self.recipe_folder, self.export_sources_folder)
+        self.requires("miniaudio/2.0")
 
     def layout(self):
         cmake_layout(self)

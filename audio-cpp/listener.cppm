@@ -1,6 +1,8 @@
-#pragma once
+module;
 
 #include <miniaudio/miniaudio.h>
+
+export module audio:listener;
 
 namespace audio {
 
