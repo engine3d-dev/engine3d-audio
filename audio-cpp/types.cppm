@@ -18,6 +18,13 @@ export namespace audio {
         f32 = 5     // ma_format_f32
     };
 
+    enum class device_type : uint8_t {
+        playback = 1,
+        capture = 2,
+        duplex = 3,
+        loopback = 4
+    };
+
     /** A list of standard sample rates. */
     /* Standard rates need to be in priority order. */
     enum class sample_rate : uint32_t {

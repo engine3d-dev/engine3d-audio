@@ -1,5 +1,6 @@
 module;
 
+#include <print>
 #include <cstdint>
 #include <miniaudio/miniaudio.h>
 export module audio:device;
@@ -12,6 +13,7 @@ export namespace audio {
         uint32_t sample_rate;
         uint32_t channels;
         uint32_t format;
+        bool is_default=false;
     };
 
     /**
@@ -23,7 +25,7 @@ export namespace audio {
         /**
          * @brief Removes ability to construct an empty playback device object
          */
-        playback_device() = delete;
+        playback_device() = default;
 
         /**
          * @brief Construct a new playback device object
@@ -35,7 +37,7 @@ export namespace audio {
          *
          * @param p_params The parameters for the playback device, including sample rate, channels, and format.
          */
-        playback_device(device_type const p_device_type, const device_params& p_params) {
+        playback_device(device_type const p_device_type, const device_params& p_params) : m_is_default(p_params.is_default){
             m_audio_device_config = ma_device_config_init(static_cast<ma_device_type>(p_device_type));
             m_audio_device_config.playback.format = static_cast<ma_format>(p_params.format);
             m_audio_device_config.playback.channels = p_params.channels;
@@ -60,7 +62,7 @@ export namespace audio {
          * @param p_context
          * @param p_params
          */
-        playback_device(ma_context* p_context, const device_params& p_params) {
+        playback_device(ma_context* p_context, const std::string& p_name, const ma_device_id& p_device_id, const device_params& p_params) : m_name(p_name), m_is_default(p_params.is_default) {
             m_audio_device_config = ma_device_config_init(ma_device_type_playback);
             m_audio_device_config.playback.format = static_cast<ma_format>(p_params.format);
             m_audio_device_config.playback.channels = p_params.channels;
@@ -86,6 +88,10 @@ export namespace audio {
             return m_is_valid;
         }
 
+        [[nodiscard]] bool is_default() const {
+            return m_is_default;
+        }
+
         /**
          * @brief Start the playback device. If the device fails to start, it will be reset and marked as invalid.
          */
@@ -104,6 +110,10 @@ export namespace audio {
             if (res != MA_SUCCESS) {
                 reset();
             }
+        }
+
+        [[nodiscard]] std::string name() const {
+            return m_name;
         }
 
         // Implicit conversion operators to allow using the playback_device object directly as a ma_device pointer or reference
@@ -130,6 +140,8 @@ export namespace audio {
         ma_device m_audio_device_handler;
         ma_device_config m_audio_device_config;
         ma_device_info m_audio_device_info;
+        std::string m_name="";
+        bool m_is_default=false;
     };
 
 
