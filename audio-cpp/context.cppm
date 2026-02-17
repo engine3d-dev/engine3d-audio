@@ -25,7 +25,7 @@ export namespace audio {
         ~context() = default;
 
 
-        std::span<const audio::playback_device> enumerate_playback_devices() {
+        std::span<audio::playback_device> enumerate_playback_devices() {
             uint32_t device_count;
             ma_device_info* playback_devices;
             ma_device_id id;
@@ -45,8 +45,7 @@ export namespace audio {
                 m_playback_devices.emplace_back(&m_context, playback_devices[i].name, playback_devices[i].id, params);
             }
 
-            // return m_playback_devices;
-            return std::span<const playback_device>(m_playback_devices.begin(), m_playback_devices.end());
+            return m_playback_devices;
         }
 
 
