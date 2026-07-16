@@ -6,6 +6,19 @@ set(CMAKE_COLOR_DIAGNOSTICS ON)
 
 project(audio-cpp LANGUAGES CXX)
 
+# find_program(CLANG_TIDY_EXE NAMES clang-tidy)
+# if(CLANG_TIDY_EXE)
+#     message(STATUS "Clang-tidy found: ${CLANG_TIDY_EXE}")
+#     set(CLANG_TIDY_COMMAND "${CLANG_TIDY_EXE};--config-file=${CMAKE_CURRENT_SOURCE_DIR}/.clang-tidy")
+#     if(CLANG_TIDY_FIX)
+#         message(STATUS "Clang-tidy auto-fix enabled")
+#         list(APPEND CLANG_TIDY_COMMAND "--fix")
+#     endif()
+#     set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+# else()
+#     message(STATUS "Clang-tidy not found - continuing without clang-tidy")
+# endif()
+
 static_library()
 
 build_unit_test(
@@ -25,6 +38,10 @@ set_packages(
     miniaudio::miniaudio
 )
 
+add_executable(test demo/application.cpp)
+
+target_link_libraries(test audio-cpp)
+
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
 target_sources(${PROJECT_NAME} PUBLIC
@@ -32,6 +49,8 @@ target_sources(${PROJECT_NAME} PUBLIC
     TYPE CXX_MODULES
     FILES
     audio-cpp/audio.cppm
+    audio-cpp/context.cppm
+    audio-cpp/device.cppm
     audio-cpp/sound.cppm
     audio-cpp/types.cppm
 )
