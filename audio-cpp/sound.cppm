@@ -2,7 +2,6 @@ module;
 
 #include <string>
 #include <miniaudio/miniaudio.h>
-#include <cstdint>
 
 export module audio:sound;
 
